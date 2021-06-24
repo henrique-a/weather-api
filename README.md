@@ -15,6 +15,7 @@ Receives a user defined ID, collect weather data from Open Weather API and store
         - Humidity
    
  - GET /api/weather-data?id={userid}
+ 
  Receives the user defined ID, returns with the percentage of the POST progress ID (collected cities completed) until the current moment.
 
 ## Setup and Run on localhost

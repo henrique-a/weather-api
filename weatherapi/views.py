@@ -7,15 +7,15 @@ from weatherapi.city_ids import CITY_IDS
 from time import strftime
 import requests
 import asyncio
-from django.utils.timezone import localtime 
-
+import os
 
 # Create your views here.
-API_KEY = '0c514e9b62bc23e0498ca8eb5a424bb1'
+API_KEY = os.environ['API_KEY']
+print(f'API_KEY: {API_KEY}')
 
 async def api_call(id):
     response = requests.get(
-                f'http://api.openweathermap.org/data/2.5/weather?id={id}&appid={API_KEY}&units=metric'
+        f'http://api.openweathermap.org/data/2.5/weather?id={id}&appid={API_KEY}&units=metric'
     )
     return response
 
@@ -59,12 +59,9 @@ class UserRequestView(APIView):
             print(f'Válido: {weather_serializer.is_valid()}')
             if weather_serializer.is_valid():
                 weather_serializer.save()
-
         
         loop.close()
 
-        
-        
         return Response(user_request_serializer.data, status=status.HTTP_201_CREATED)
 
 

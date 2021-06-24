@@ -1,0 +1,26 @@
+version: '3.7'
+
+networks: 
+  weather_api_net:
+    driver: bridge
+    driver_opts:
+      com.docker.network.enable_ipv6: "false"
+    
+services:
+  web:
+    restart: unless-stopped
+    image: weatherapi:1.0
+    container_name: weatherapi
+    ports:
+     - "8000:8000"
+    volumes:
+     - data:/app
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    networks:
+     - weather_api_net
+
+volumes:
+  data:

@@ -10,9 +10,7 @@ import asyncio
 import os
 
 # Create your views here.
-API_KEY = ''
-#API_KEY = os.environ['API_KEY']
-#print(f'API_KEY: {API_KEY}')
+API_KEY = os.environ['API_KEY']
 
 async def api_call(id):
     response = requests.get(
@@ -41,7 +39,6 @@ class UserRequestView(APIView):
         if user_request_serializer.is_valid():
             user_request_serializer.save()
 
-        print(f'User Válido: {user_request_serializer.is_valid()}')
         print(user_request_serializer.data)
         
         loop = asyncio.new_event_loop()
@@ -57,7 +54,6 @@ class UserRequestView(APIView):
             print(weather_data)
 
             weather_serializer = WeatherDataSerializer(data=weather_data, many=False)
-            print(f'Válido: {weather_serializer.is_valid()}')
             if weather_serializer.is_valid():
                 weather_serializer.save()
         

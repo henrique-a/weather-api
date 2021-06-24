@@ -2,7 +2,9 @@
 
 ## About
 A service that collects data from an Open Weather API and store it as
-a JSON data.
+a JSON data. 
+
+The API was developed in Django with Django REST framework, a powerful framework to build web REST APIs. The data is stored in a SQLite database, a simple and light database.
 
 ## Endpoints
 - POST /api/requests?id={userid} 

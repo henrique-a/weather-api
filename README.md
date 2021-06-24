@@ -30,6 +30,6 @@ docker build -t weatherapi:1.0 . --network host
 docker-compose -f docker-compose.yaml up
 ```
 3. Test
-- POST http://127.0.0.1/api/requests?id={userid}
-- GET http://127.0.0.1/api/weather-data?id={userid}
+- POST http://127.0.0.1:8000/api/requests?id={userid}
+- GET http://127.0.0.1:8000/api/weather-data?id={userid}
 

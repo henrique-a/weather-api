@@ -10,8 +10,9 @@ import asyncio
 import os
 
 # Create your views here.
-API_KEY = os.environ['API_KEY']
-print(f'API_KEY: {API_KEY}')
+API_KEY = ''
+#API_KEY = os.environ['API_KEY']
+#print(f'API_KEY: {API_KEY}')
 
 async def api_call(id):
     response = requests.get(

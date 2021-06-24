@@ -8,6 +8,7 @@ a JSON data.
 - POST /api/requests?id={userid}
 
 Receives a user defined ID, collect weather data from Open Weather API and store:
+
     - The user defined ID (needs to be unique for each request)
     - Datetime of request
     - JSON data with:
